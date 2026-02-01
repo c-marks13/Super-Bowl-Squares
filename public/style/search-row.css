@@ -1,13 +1,17 @@
 .search-row-outer{
     background-color: #d1d1d1;
+    padding-top: 5px;
 }
 
 .search-row-inner{
     margin: auto;
-    padding: 10px;
+    padding: 5px 10px;
     display: flex;
     justify-content: space-between;
     max-width: 1500px;
+    width: calc(100vw - 40px);
+    border-radius: 10px;
+    background: #969696;
 }
 
 #logo-container{

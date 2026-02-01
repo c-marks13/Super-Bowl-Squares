@@ -1,4 +1,8 @@
+let currentYear = 2025;
+
 function changeYear(){
+    currentYear = Number(document.getElementById("year-filter-select").value);
+
     loadLogo();
     loadSquaresTable();
     loadTeamLogos();
@@ -22,11 +26,11 @@ function highlightWinners(highlight){
     const showWinnerButton = document.getElementById("show-winner-button");
     
     for(let i = 0; i<4; i++){
-        const winningNumberNFC = winningNumbers[2024][i][0]; //TODO: CHANGE BASED ON YEAR SELECTED
-        const winningNumberAFC = winningNumbers[2024][i][1]; //TODO: CHANGE BASED ON YEAR SELECTED
+        const winningNumberNFC = winningNumbers[currentYear][i][0]; //TODO: CHANGE BASED ON YEAR SELECTED
+        const winningNumberAFC = winningNumbers[currentYear][i][1]; //TODO: CHANGE BASED ON YEAR SELECTED
     
-        const topNumberCordinate = topNumbersMap[2024].indexOf(winningNumberNFC); //TODO: CHANGE BASED ON YEAR SELECTED
-        const leftNumberCordinate = leftNumbersMap[2024].indexOf(winningNumberAFC); //TODO: CHANGE BASED ON YEAR SELECTED
+        const topNumberCordinate = topNumbersMap[currentYear].indexOf(winningNumberNFC); //TODO: CHANGE BASED ON YEAR SELECTED
+        const leftNumberCordinate = leftNumbersMap[currentYear].indexOf(winningNumberAFC); //TODO: CHANGE BASED ON YEAR SELECTED
 
         const cordinates = topNumberCordinate + '-' + leftNumberCordinate;
         const winners = document.getElementsByClassName(cordinates);

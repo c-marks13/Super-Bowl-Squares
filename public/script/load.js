@@ -106,7 +106,14 @@ function loadLeftNumbersAndPeople(selectedYear) {
         // Append the corresponding squares data cells
         squaresData[rowIndex].forEach((value, columnIndex ) => {
             const cell = document.createElement("td");
-            cell.textContent = value;
+
+            if(value == 0){
+                cell.textContent = columnIndex + '-' + rowIndex
+            }
+            else{
+                cell.textContent = people[value].display;
+            }
+        
             cell.classList.add(columnIndex + "-" + rowIndex);
             row.appendChild(cell);
         });
