@@ -1,0 +1,129 @@
+@media (min-width: 1330px) {
+    .inner-container{
+        justify-content: center;
+    }
+}
+
+.squares-logo{
+    width: 25px;
+}
+
+.afc-name, .nfc-name{
+    font-size: 25px;
+    max-width: 100vw;
+    position: sticky;
+    left: 0;
+    background: rgb(209, 209, 209);
+}
+
+.nfc-name{
+    text-align: center;
+}
+
+.afc-name{
+    width: 25px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 10px;
+}
+
+#nfc-logo{
+    height: 30px;
+}
+
+#afc-logo{
+    height: 30px; 
+    transform: rotate(-90deg);
+}
+
+.squares-container{
+    height: calc(100vh - 122px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgb(209, 209, 209);
+}
+
+.inner-container{
+    height: 100%;
+    width: 100%;
+    display: flex; 
+    align-items: center;
+}
+
+.right-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+td{
+    background: white;
+    height: calc((100vh - 220px) / 11);
+    border: 1px solid rgb(216, 216, 216);
+    text-align: center;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+#top-numbers > td:not(:first-child) {
+    width: calc(90vw / 10);
+}
+
+#top-numbers>td{
+    /* background: #c3a166; */
+    color:white;
+    text-align: center;
+    max-width: 150px;
+    min-width: 110px;
+    height: 40px;
+}
+
+#place-holder-cell{
+    background: #323232 !important;
+}
+
+.left-number{
+    /* background-color: #e31837; */
+    color: white;
+    padding: 0px 15px;
+}
+
+#place-holder-cell, .left-number{
+    position: sticky;
+    left: 0;
+    min-width: 15px !important;
+}
+
+.grid{
+    margin-left: -1px;
+    max-width: calc(100vw - 60px);
+    overflow: auto;
+}
+
+.bottom-scroll-container{
+    display: flex;
+    justify-content: end;
+}
+
+@media (min-width: 1201px){
+    .bottom-scroll-container{
+        display: none;
+    }
+}
+
+.scroll-icon{
+    width: 23px;
+}
+
+.winner-q1, .winner-q2, .winner-q3, .winner-q4{
+    background-color: #62ff56d6;
+}
+
+.name-search-highlight{
+    background-color: #ffff56d7;
+}

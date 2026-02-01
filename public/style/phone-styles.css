@@ -1,0 +1,13 @@
+@media (max-width: 450px) {
+    #nfc-logo, #afc-logo{
+        height: 25px;
+    }
+
+    .afc-name{
+        width: 20px;
+    }
+
+    #superbowl-logo{
+        width: 55px;
+    }
+}
