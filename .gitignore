@@ -67,6 +67,3 @@ node_modules/
 
 # macOS
 .DS_Store
-
-# Local git workflow notes (not committed)
-GIT_WORKFLOW.local.md
