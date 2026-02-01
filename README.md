@@ -15,3 +15,7 @@ A modern Super Bowl Squares app featuring yearly boards, name search, and winner
 
 ## Goals
 This project focuses on UI/UX clarity while keeping the classic Super Bowl Squares experience simple and familiar.
+
+## Documentation
+- **Deployment:** See `DEPLOYMENT.md`
+- **Version Control:** See `GIT_WORKFLOW.md`
