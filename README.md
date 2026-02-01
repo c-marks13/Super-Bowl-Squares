@@ -4,8 +4,6 @@ A modern Super Bowl Squares app featuring yearly boards, name search, and winner
 
 **Live App:** https://supersquarepool.web.app/
 
-test
-
 ## Features
 - Year-based boards (current year shown by default)
 - Search squares by name
