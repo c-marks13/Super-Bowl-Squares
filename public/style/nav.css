@@ -2,7 +2,7 @@
 nav{
     background: #252525;
     color: white;
-    padding: 10px;
+    padding: 5px 10px;
 }
 
 .inner-nav{
@@ -12,6 +12,7 @@ nav{
     width: 100%;
     max-width: 1500px;
     margin: auto;
+    height: 45px;
 }
 
 .app-name{
@@ -31,6 +32,28 @@ nav{
     border-radius: 5px;
 }
 
-.year-filter-label{
-    margin-right: 5px;
+.red-search{
+    background-color: #da4141;
+}
+
+.red-search:hover{
+    background-color: #bb2c2c;
+}
+
+.blue-search{
+    background-color: #1672fb;
+}
+
+.blue-search:hover{
+    background-color: #045ada;
+}
+
+#search-toggle-btn{
+        display: none;
+}
+
+@media (max-width: 700px) {
+    #search-toggle-btn{
+        display: flex;
+    }
 }

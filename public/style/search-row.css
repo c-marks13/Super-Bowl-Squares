@@ -1,25 +1,47 @@
 .search-row-outer{
-    background-color: #d1d1d1;
-    padding-top: 5px;
+    border-top: 1px solid #646363;
+    background-color: #373737;
+    color:white;
+    position: static;
+    display: block;
+    top: 55px;
+    width: 100%;
+    z-index: 99;
+}
+
+/* Default (desktop) */
+#search-row-outer {
+    display: block;
+}
+
+/* Mobile hidden by default */
+@media (max-width: 700px) {
+    #search-row-outer {
+        display: none;
+        position: absolute;
+    }
+
+    #search-row-outer.is-open {
+        display: block;
+    }
 }
 
 .search-row-inner{
     margin: auto;
-    padding: 5px 10px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     max-width: 1500px;
-    width: calc(100vw - 40px);
-    border-radius: 10px;
-    background: #969696;
+    background: #373737;
 }
 
 #logo-container{
-    height: 55px;
+    /* height: 55px; */
+    margin-right: 15px;
 }
 
 #superbowl-logo{
-    width: 70px;
+    height: 37px;
     margin-left: 10px;
 }
 
@@ -69,7 +91,7 @@
 }
 
 .name-search>input{
-    padding: 10px 28px;
+    padding: 5px 28px;
     border-radius: 5px;
     width: 110px;
     border: none;

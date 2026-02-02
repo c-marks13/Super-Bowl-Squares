@@ -10,11 +10,11 @@
     <link rel="icon" href="./static/squares-logo.png" type="image/x-icon">
 
     <!-- STYLE SHEET -->
-    <link rel="stylesheet" href="./style/index.css">
-    <link rel="stylesheet" href="./style/nav.css">
-    <link rel="stylesheet" href="./style/search-row.css">
-    <link rel="stylesheet" href="./style/squares-container.css">
-    <link rel="stylesheet" href="./style/phone-styles.css">
+    <link rel="stylesheet" href="./style/index.css?v=1.1">
+    <link rel="stylesheet" href="./style/nav.css?v=1.1">
+    <link rel="stylesheet" href="./style/search-row.css?v=1.1">
+    <link rel="stylesheet" href="./style/squares-container.css?v=1.1">
+    <link rel="stylesheet" href="./style/phone-styles.css?v=1.1">
 </head>
 
 <body>
@@ -22,33 +22,84 @@
 
         <nav>
             <div class="inner-nav">
-                <div class="app-name"> Super Bowl Squares </div>
-                <div class="year-filter-container">
-                    <label class="year-filter-label">Year: </label>
-                    <select id="year-filter-select" onchange="changeYear()"></select>
+                <div style="display: flex; align-items: center;">
+                    <div class="app-name"> Super Bowl Squares </div> 
                 </div>
-            </div>
+                <div style="display: flex; align-items: center;">
+                    <div id="logo-container">
+                        <img id="superbowl-logo" src="" alt="Super Bowl Logo">
+                    </div>   
+                    <div class="blue-search" onclick="toggleSearchBar()" id="search-toggle-btn" style="border-radius: 5px; align-items: center; justify-content:center; cursor: pointer; width: 30px; height: 30px;">
+                        <img id="open-search" style="height: 18px;" src="./static/svg/magnifying-glass-solid.svg" alt="Magnifying Glass">
+                        <img id="close-search" style="height: 18px; display: none;" src="./static/svg/x-solid.svg" alt="X">
+                    </div>
+                </div>
+            </div> 
         </nav>
 
-        <div class="search-row-outer">
+        <div id="search-row-outer" class="search-row-outer">
             <div class="search-row-inner">
                 <div style="display: flex; align-items: center;">
-                    <div style="font-weight: bold; margin-right: 10px; font-size: 18px;">Filter:</div>
-                    <div class="name-search" style="margin-right: 15px;">
-                        <img class="mag-glass search-icon" src="./static/search_bar_icons/magnifying-glass-solid.svg" alt="Magnifying Glass">
-                        <input id="search-input" type="text" placeholder="Search Name">
-                        <img class="spinner search-icon" src="./static/search_bar_icons/circle-notch-solid.svg" alt="Loading Spinner">
-                        <img class="x search-icon displayNone" src="./static/search_bar_icons/x-solid.svg" alt="X">
+                    <!-- <div style="font-weight: bold; font-size: 16px; margin-right: 30px;">Viewing Options</div> -->
+
+
+                    <div style="margin-right: 30px; display: flex; align-items:center">
+                        <div style="margin-right: 10px; font-size: 16px;">Highlight Name:</div>
+                        <div class="name-search">
+                            <img class="mag-glass search-icon" src="./static/search_bar_icons/magnifying-glass-solid.svg" alt="Magnifying Glass">
+                            <input id="search-input" type="text" placeholder="Search Name">
+                            <img class="spinner search-icon" src="./static/search_bar_icons/circle-notch-solid.svg" alt="Loading Spinner">
+                            <img class="x search-icon displayNone" src="./static/search_bar_icons/x-solid.svg" alt="X">
+                        </div>
                     </div>
 
-                    <div id="show-winner-button" style="display: none;" onclick="checkForWinners(this)">
-                        Show Winners
-                    </div>                    
-                </div>
+                    <div id="highlight-winners-container" style="display: flex; align-items: center;">
+                        <div style="margin-right: 10px; font-size: 16px;">Highlight Winners:</div>
 
-                <div id="logo-container">
-                    <img id="superbowl-logo" src="" alt="Super Bowl Logo">
-                </div>                
+                        <label style="position: relative; display: inline-block; width: 36px; height: 20px;">
+                            <input
+                                type="checkbox"
+                                id="highlight-winners-toggle"
+                                onchange="checkForWinners(this)"
+                                style="opacity: 0; width: 0; height: 0;"
+                            />
+
+                            <span
+                                style="
+                                    position: absolute;
+                                    cursor: pointer;
+                                    top: 0;
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    background-color: #555;
+                                    border-radius: 20px;
+                                    transition: background-color 0.2s;
+                                "
+                            ></span>
+
+                            <span
+                                style="
+                                    position: absolute;
+                                    content: '';
+                                    height: 14px;
+                                    width: 14px;
+                                    left: 3px;
+                                    bottom: 3px;
+                                    background-color: white;
+                                    border-radius: 50%;
+                                    transition: transform 0.2s;
+                                "
+                            ></span>
+                        </label>
+                        <!-- <div id="show-winner-button" style="display: none;" onclick="checkForWinners(this)"> Show Winners</div>  -->
+                    </div>                   
+                </div> 
+
+                <div class="year-filter-container">
+                    <label style="margin-right: 10px; font-size: 16px;">Year: </label>
+                    <select id="year-filter-select" onchange="changeYear()"></select>
+                </div>   
             </div>
         </div>
 
@@ -91,10 +142,12 @@
             </div>
         </div>
 
+        <footer style="background-color: #252525; text-align: center; padding: 10px; color: white">Cons Super Bowl Squares · Good Luck!</footer>
+
         <!-- SCRIPT FILES -->
-        <script src="./script/globals.js?v=2.0.4"></script>
-        <script src="./script/load.js?v=1.0"></script>
-        <script src="./script/events.js?v=1.2"></script>
+        <script src="./script/globals.js?v=1.1"></script>
+        <script src="./script/load.js?v=1.1"></script>
+        <script src="./script/events.js?v=1.1"></script>
 </body>
 
 </html>

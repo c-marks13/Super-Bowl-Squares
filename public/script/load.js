@@ -122,7 +122,7 @@ function loadLeftNumbersAndPeople(selectedYear) {
 
 function toggleWinnerButton() {
     const selectElement = document.getElementById("year-filter-select");
-    const showWinnerButton = document.getElementById("show-winner-button");
+    const showWinnerButton = document.getElementById("highlight-winners-container");
 
     if (!selectElement || !showWinnerButton) return;
 
@@ -131,7 +131,7 @@ function toggleWinnerButton() {
 
     // Check if the selected year has winning numbers
     if (winningNumbers[selectedYear] && winningNumbers[selectedYear].length > 0) {
-        showWinnerButton.style.display = "block";
+        showWinnerButton.style.display = "flex";
     } else {
         showWinnerButton.style.display = "none";
     }

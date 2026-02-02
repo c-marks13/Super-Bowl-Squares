@@ -12,9 +12,26 @@ function changeYear(){
     highlightWinners(false);
 }
 
-function checkForWinners(clickedDiv){
-    if (clickedDiv.textContent.includes('Show')) {
-        //Unhighlight text search if there was any
+function toggleSearchBar() {
+    const searchRow = document.getElementById("search-row-outer");
+    const openSearch = document.getElementById("open-search");
+    const closeSearch = document.getElementById("close-search");
+    const searchToggleButton = document.getElementById("search-toggle-btn");
+
+    if (!searchRow) return;
+
+    const isOpen = searchRow.classList.toggle("is-open");
+
+    openSearch.style.display = isOpen ? "none" : "block";
+    closeSearch.style.display = isOpen ? "block" : "none";
+
+    searchToggleButton.classList.toggle("blue-search", !isOpen);
+    searchToggleButton.classList.toggle("red-search", isOpen);
+}
+
+
+function checkForWinners(checkbox){
+    if (checkbox.checked) {
         clearTextSearch();
         highlightWinners(true);
     } else {
@@ -22,49 +39,39 @@ function checkForWinners(clickedDiv){
     }
 }
 
+
 function highlightWinners(highlight){
-    const showWinnerButton = document.getElementById("show-winner-button");
-    
-    for(let i = 0; i<4; i++){
-        const winningNumberNFC = winningNumbers[currentYear][i][0]; //TODO: CHANGE BASED ON YEAR SELECTED
-        const winningNumberAFC = winningNumbers[currentYear][i][1]; //TODO: CHANGE BASED ON YEAR SELECTED
-    
-        const topNumberCordinate = topNumbersMap[currentYear].indexOf(winningNumberNFC); //TODO: CHANGE BASED ON YEAR SELECTED
-        const leftNumberCordinate = leftNumbersMap[currentYear].indexOf(winningNumberAFC); //TODO: CHANGE BASED ON YEAR SELECTED
+    for(let i = 0; i < 4; i++){
+        const winningNumberNFC = winningNumbers[currentYear][i][0];
+        const winningNumberAFC = winningNumbers[currentYear][i][1];
+
+        const topNumberCordinate = topNumbersMap[currentYear].indexOf(winningNumberNFC);
+        const leftNumberCordinate = leftNumbersMap[currentYear].indexOf(winningNumberAFC);
 
         const cordinates = topNumberCordinate + '-' + leftNumberCordinate;
         const winners = document.getElementsByClassName(cordinates);
 
+        if (!winners || !winners[0]) continue;
+
         if(highlight){
-            showWinnerButton.textContent = 'Hide Winners';
-
             winners[0].classList.add('winner-q' + (i + 1));
-            let existingQuarterWon = winners[0].querySelector('.quarter-won');
 
+            let existingQuarterWon = winners[0].querySelector('.quarter-won');
             if (existingQuarterWon) {
-                // Get current text and remove the parentheses
                 let currentText = existingQuarterWon.textContent.replace(/[()]/g, '');
-                
-                // Append the new quarter
                 currentText += ', Q' + (i + 1);
-                
-                // Update the text content with proper parentheses
                 existingQuarterWon.textContent = `(${currentText})`;
-            } 
-            else {
-                // Create new quarter-won div
+            } else {
                 const quarterWonDiv = document.createElement('div');
                 quarterWonDiv.classList.add('quarter-won');
                 quarterWonDiv.style.fontSize = '11px';
-                quarterWonDiv.textContent = `(Q${i + 1})`; // Properly formatted from the start
-
+                quarterWonDiv.textContent = `(Q${i + 1})`;
                 winners[0].appendChild(quarterWonDiv);
             }
         }
         else{
-            showWinnerButton.textContent = 'Show Winners';
-
             winners[0].classList.remove('winner-q' + (i + 1));
+
             let existingQuarterWon = winners[0].querySelector('.quarter-won');
             if (existingQuarterWon) {
                 existingQuarterWon.remove();
