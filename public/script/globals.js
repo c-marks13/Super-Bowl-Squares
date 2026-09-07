@@ -35,18 +35,18 @@ const people = {
     22: { firstName: "Beef", lastName: "Friend", display: "Logan" },
     23: { firstName: "Zach", lastName: "Chives", display: "Chives" },
     24: { firstName: "Carter", lastName: "Bergdahl", display: "Bergdahl" },
-    25: { firstName: "Jon", lastName: "Marks", display: "Jonnny" },
+    25: { firstName: "Jon", lastName: "Marks", display: "Jonny" },
     26: { firstName: "Jacob", lastName: "Jessel", display: "Jessel" },
-    27: { firstName: "Tate", lastName: "Miller", display: "Tate" },
+    27: { firstName: "Tate", lastName: "Miller", display: "Tate Miller" },
     28: { firstName: "Mathew", lastName: "Willer", display: "Mathew Willer"},
     29: { firstName: "Beef", lastName: "Friend", display: "Turk" },
     30: { firstName: "Max", lastName: "Murray", display: "Murr" },
-    31: { firstName: "Kylee", lastName: "Miller", display: "Kylee" },
+    31: { firstName: "Kylee", lastName: "Miller", display: "Kylee Miller" },
     32: { firstName: "Alex", lastName: "Russo", display: "Russo" },
     33: { firstName: "Kole", lastName: "Forsthoffer", display: "Kole" },
     34: { firstName: "Jordan", lastName: "Becker", display: "Becker" },
     35: { firstName: "Jackson", lastName: "Welsh", display: "Welsh" },
-    36: { firstName: "Sara", lastName: "Forsthoffer", display: "Sara F" },
+    36: { firstName: "Sara", lastName: "Forsthoffer", display: "Sara Forsthoffer" },
     37: { firstName: "Jim", lastName: "Willer", display: "Jim Willer" },
     38: { firstName: "Hayes", lastName: "Weiner", display: "Hayes" },
     39: { firstName: "Marcus", lastName: "Hensler", display: "Marcus" },
@@ -54,9 +54,16 @@ const people = {
     41: { firstName: "Janelle", lastName: "Forsthoffer", display: "Janelle" },
     42: { firstName: "Michele", lastName: "Unger", display: "Grandma Mickey" },
     43: { firstName: "Mitch", lastName: "Moeller", display: "Mitch Mo" },
-    44: { firstName: "Jay", lastName: "Luckow", display: "Jay" },
+    44: { firstName: "Jay", lastName: "Luckow", display: "Jay Luckow" },
     45: { firstName: "Max", lastName: "B", display: "Max B" },
-    46: { firstName: "Bryce", lastName: "M", display: "Bryce M" }
+    46: { firstName: "Bryce", lastName: "M", display: "Bryce M" }, 
+    47: { firstName: "Sarah", lastName: "Hensler", display: "Sarah Hensler" },
+    48: { firstName: "Amanda", lastName: "Schling", display: "Amanda Schling" },
+    49: { firstName: "Nicole", lastName: "Luckow", display: "Nicole Luckow" },
+    50: { firstName: "Patrick", lastName: "Wise", display: "Patrick Wise"},
+    51: { firstName: "Bradley", lastName: "Ackerman", display: "Brad"},
+    52: { firstName: "Sam", lastName: "Schill", display: "Schill"},
+    53: { firstName: "Carter", lastName: "Breunig", display: "Carter Breunig"}
 };
 //-------------------------------------------------------
 
@@ -85,13 +92,13 @@ const tempNumbersArray = ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#']
 const topNumbersMap = {
     2024: [7, 3, 5, 1, 6, 2, 0, 9, 4, 8],
     2025: [8, 6, 3, 4, 2, 7, 9, 0, 1, 5],
-    2026: tempNumbersArray
+    2026: [6, 2, 7, 8, 4, 5, 0, 9, 3, 1]
 };
 
 const leftNumbersMap = {
     2024: [0, 3, 6, 8, 9, 2, 1, 7, 5, 4],
     2025: [1, 4, 7, 5, 6, 3, 8, 0, 2, 9],
-    2026: tempNumbersArray
+    2026: [3, 6, 2, 8, 4, 0, 5, 1, 9, 7]
 };
 //----------------------------------------------------
 
@@ -124,16 +131,16 @@ const squares2025 = [
 ];
 
 const squares2026 = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [ 1,  15,  44,  21,  41,  50,   4,  13,  32,  32],
+    [25,   4,  21,  31,   7,   2,  43,  10,  32,  32],
+    [38,  26,  17,   8,  15,  48,  51,  50,  13,  23],
+    [14,  48,  11,  10,  26,  20,  12,  38,   1,  35],
+    [12,  51,  35,  23,  31,  53,  11,   2,  19,   4],
+    [51,  47,  13,  20,  34,  38,  23,  21,  12,  36],
+    [35,  11,  43,   1,  51,   8,  26,  48,   7,  27],
+    [19,  38,  26,   2,  12,  13,  27,  17,  35,  43],
+    [15,  17,   2,  19,  50,  25,  21,  47,  15,  52],
+    [53,  23,  50,  43,   1,  10,  49,  33,  20,  11]
 ];
 
 // const tempSquareArray = [

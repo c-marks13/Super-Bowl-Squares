@@ -1,4 +1,4 @@
-let currentYear = 2025;
+let currentYear = 2026;
 
 function changeYear(){
     currentYear = Number(document.getElementById("year-filter-select").value);
@@ -10,6 +10,8 @@ function changeYear(){
     
     clearTextSearch();
     highlightWinners(false);
+    const btn = document.getElementById("show-winner-button");
+    btn.classList.remove("active");
 }
 
 function toggleSearchBar() {
@@ -27,20 +29,25 @@ function toggleSearchBar() {
 
     searchToggleButton.classList.toggle("blue-search", !isOpen);
     searchToggleButton.classList.toggle("red-search", isOpen);
+
+    const grayout = document.getElementById("grayout");
+    grayout.style.display = isOpen ? "block" : "none";
 }
 
+function checkForWinners(button){
 
-function checkForWinners(checkbox){
-    if (checkbox.checked) {
-        clearTextSearch();
-        highlightWinners(true);
-    } else {
-        highlightWinners(false);
-    }
+    const isActive = button.classList.toggle("active");
+
+    clearTextSearch();
+    highlightWinners(isActive);
 }
 
 
 function highlightWinners(highlight){
+    if(currentYear==2026){
+        return;
+    }
+
     for(let i = 0; i < 4; i++){
         const winningNumberNFC = winningNumbers[currentYear][i][0];
         const winningNumberAFC = winningNumbers[currentYear][i][1];
@@ -119,6 +126,8 @@ function debounce(func, delay) {
 let performSearch = debounce(function () {
     //Unhighlight winners if they were selected
     highlightWinners(false);
+    const btn = document.getElementById("show-winner-button");
+    btn.classList.remove("active");
 
     //Iterate through each cell using a for loop and print the content if it has text
     for (let i = 1; i < superbowlSquares.length; i++) {

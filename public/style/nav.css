@@ -1,8 +1,13 @@
+html, body {
+    touch-action: manipulation;
+}
 
 nav{
     background: #252525;
     color: white;
     padding: 5px 10px;
+    position: relative;
+    z-index: 6;
 }
 
 .inner-nav{
@@ -20,16 +25,6 @@ nav{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     letter-spacing: 1px;
-}
-
-.year-filter-container{
-    display: flex;
-    align-items: center;
-}
-
-#year-filter-select{
-    padding: 5px;
-    border-radius: 5px;
 }
 
 .red-search{
@@ -52,8 +47,29 @@ nav{
         display: none;
 }
 
+#squares-link{
+    background: #486077;
+    border: 1px solid #6b859e;
+    padding: 5px 10px; 
+    border-radius: 5px;
+}
+
 @media (max-width: 700px) {
     #search-toggle-btn{
         display: flex;
     }
+
+    #squares-link{
+        margin-right: 15px;
+    }
+}
+
+#grayout{
+    display: none;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    background: #4545458f;
+    width: 100%;
+    z-index: 5;
 }

@@ -1,5 +1,6 @@
 .search-row-outer{
     border-top: 1px solid #646363;
+    border-bottom: 1px solid #646363;
     background-color: #373737;
     color:white;
     position: static;
@@ -17,12 +18,17 @@
 /* Mobile hidden by default */
 @media (max-width: 700px) {
     #search-row-outer {
-        display: none;
+        /* display: none; */
         position: absolute;
+
+        overflow: hidden;
+        max-height: 0;
+
+        transition: max-height 333ms ease;
     }
 
     #search-row-outer.is-open {
-        display: block;
+        max-height: 200px;     /* just needs to be bigger than content */
     }
 }
 
@@ -30,7 +36,8 @@
     margin: auto;
     padding: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
+    align-items: center;
     max-width: 1500px;
     background: #373737;
 }
@@ -87,13 +94,14 @@
     position: relative;
     display: flex;
     align-items: center;
-    max-width: 150px;
+    max-width: 165px;
+    margin-right: 15px;
 }
 
 .name-search>input{
     padding: 5px 28px;
     border-radius: 5px;
-    width: 110px;
+    width: 100%;
     border: none;
     font-size: 15px;
     width: 100%;
@@ -104,14 +112,79 @@
 }
 
 #show-winner-button{
-    background: #1e6dfe;
+    background: #2f6fed;
     display: block;
-    padding: 9px;
+    padding: 5px 15px;
+    font-size: 16px;
     border-radius: 5px;
     color: white;
     cursor: pointer;
+    border: none;
 }
 
-#show-winner-button:hover{
-    background: #1062fb;
+#show-winner-button:not(:disabled):not(.active):hover{
+    background: #295fd1;
+}
+
+#show-winner-button:disabled{
+    opacity: 0.45;
+    cursor: not-allowed;
+    background-color: #2b2b2b !important;
+    border-color: #444 !important;
+    color: #aaa !important;
+}
+
+#show-winner-button.active{
+    background-color: #ffd84d;   /* true yellow */
+    color: #1a1a1a;
+    border-color: #e6c23a;
+}
+
+#show-winner-button.active:hover{
+    background-color: #f5cd3a;
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#year-filter-select{
+    margin-right: 15px !important;
+    padding: 5px 10px !important;
+    border-radius: 5px !important;
+    border: 1px solid gray !important;
+    height: 28px !important;
+    font-size: 16px !important;
+    color: black !important;
+    background-color: white !important;
+}
+
+#search-input{
+    border: 1px solid gray;
+}
+
+@media (max-width: 700px) {
+    .search-row-inner{
+        flex-direction: column;
+        gap: 15px;
+        align-items: start;
+    }
+
+    #show-winner-button{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .name-search{
+        max-width: 100%;
+        width: 100%;
+        margin-right: 0px;
+    }
+
+    #year-filter-select{
+        width: 100% !important;
+    }
 }

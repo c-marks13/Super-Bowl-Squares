@@ -93,6 +93,7 @@ function loadLeftNumbersAndPeople(selectedYear) {
     // Get all rows excluding the top numbers row
     const rows = tableElement.querySelectorAll("tr:not(#top-numbers)");
 
+    let current = 1;
     rows.forEach((row, rowIndex) => {
         row.innerHTML = "";  // Clear the row
 
@@ -108,11 +109,13 @@ function loadLeftNumbersAndPeople(selectedYear) {
             const cell = document.createElement("td");
 
             if(value == 0){
-                cell.textContent = columnIndex + '-' + rowIndex
+                cell.textContent = current;
             }
             else{
                 cell.textContent = people[value].display;
             }
+
+            current++;
         
             cell.classList.add(columnIndex + "-" + rowIndex);
             row.appendChild(cell);
@@ -122,7 +125,7 @@ function loadLeftNumbersAndPeople(selectedYear) {
 
 function toggleWinnerButton() {
     const selectElement = document.getElementById("year-filter-select");
-    const showWinnerButton = document.getElementById("highlight-winners-container");
+    const showWinnerButton = document.getElementById("show-winner-button");
 
     if (!selectElement || !showWinnerButton) return;
 
@@ -131,9 +134,11 @@ function toggleWinnerButton() {
 
     // Check if the selected year has winning numbers
     if (winningNumbers[selectedYear] && winningNumbers[selectedYear].length > 0) {
-        showWinnerButton.style.display = "flex";
+        // showWinnerButton.classList.toggle("disable-btn");
+        showWinnerButton.disabled = false;
     } else {
-        showWinnerButton.style.display = "none";
+        // showWinnerButton.classList.toggle("disable-btn");
+        showWinnerButton.disabled = true;
     }
 }
 
